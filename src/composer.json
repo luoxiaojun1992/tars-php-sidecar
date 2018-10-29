@@ -1,0 +1,21 @@
+{
+    "name" : "tars-php-sidecar",
+    "description": "tars php sidecar",
+    "require": {
+        "phptars/tars-server": "~0.1",
+        "phptars/tars-deploy": "~0.1",
+        "phptars/tars2php": "~0.1",
+        "phptars/tars-log": "~0.1",
+        "guzzlehttp/guzzle": "*",
+        "ext-zip" : ">=0.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "HttpServer\\" : "./"
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts" : {
+        "deploy" : "\\Tars\\deploy\\Deploy::run"
+    }
+}
