@@ -10,8 +10,8 @@ class SidecarController extends Controller
     /**
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-	public function actionRoute()
-	{
+    public function actionRoute()
+    {
         $request = $this->getRequest();
 
         $request_uri = $request->data['server']['request_uri'];
@@ -22,7 +22,7 @@ class SidecarController extends Controller
 
 //        $this->sendRaw(print_r($request->data, true));
 
-        $backend_request_uri = str_replace('/Sidecar/route', '', $request_uri) ? : '/';
+        $backend_request_uri = str_replace('/Sidecar/route', '', $request_uri) ?: '/';
 
         $route_config = [
             'tars_mysql8:30001' => [
@@ -78,5 +78,5 @@ class SidecarController extends Controller
         } else {
             $this->sendRaw('');
         }
-	}
+    }
 }
