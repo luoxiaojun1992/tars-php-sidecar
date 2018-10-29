@@ -25,7 +25,7 @@ class SidecarController extends Controller
         $backend_request_uri = str_replace('/Sidecar/route', '', $request_uri) ?: '/';
 
         $route_config = [
-            'tars_mysql8:30001' => [
+            'tars_mysql8:50001' => [
                 '/' => [
                     'host' => 'http://www.baidu.com',
                 ],
