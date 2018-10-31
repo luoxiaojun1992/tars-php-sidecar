@@ -8,7 +8,7 @@
 require_once __DIR__.'/vendor/autoload.php';
 use \Tars\cmd\Command;
 
-require_once __DIR__ . '/config/route.php'; //todo
+require_once __DIR__ . '/config/route.php';
 
 //php tarsCmd.php  conf restart
 $config_path = $argv[1];
