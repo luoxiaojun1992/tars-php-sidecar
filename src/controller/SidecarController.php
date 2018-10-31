@@ -24,7 +24,7 @@ class SidecarController extends Controller
 
         $backend_request_uri = str_replace('/Sidecar/route', '', $request_uri) ?: '/';
 
-        $route_config = require_once __DIR__ . '/../config/route.php';
+        global $route_config;
 
         $route = null;
         if (isset($route_config[$host][$backend_request_uri])) {
@@ -37,6 +37,9 @@ class SidecarController extends Controller
             $options = [
                 'headers' => $request->data['header'],
             ];
+            if (isset($route['timeout'])) {
+                $options['timeout'] = $route['timeout'];
+            }
             if ($post) {
                 if (is_array($post)) {
                     $options['form_params'] = $post;
