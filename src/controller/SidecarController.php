@@ -4,6 +4,7 @@ namespace HttpServer\controller;
 
 use GuzzleHttp\Client;
 use HttpServer\component\Controller;
+use HttpServer\config\ENVConf;
 
 class SidecarController extends Controller
 {
@@ -24,8 +25,7 @@ class SidecarController extends Controller
 
         $backend_request_uri = str_replace('/Sidecar/route', '', $request_uri) ?: '/';
 
-        global $route_config;
-
+        $route_config = ENVConf::get('route');
         $route = null;
         if (isset($route_config[$host][$backend_request_uri])) {
             $route = $route_config[$host][$backend_request_uri];
